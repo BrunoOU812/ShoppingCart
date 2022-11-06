@@ -1,7 +1,6 @@
 import React from "react";
 
 const Articulo=(props)=>{
-    console.log("pero por el articulo",props)
         return(
             <div className="articulo">
                 <img src={props.img} alt="" className="articulo__img" />

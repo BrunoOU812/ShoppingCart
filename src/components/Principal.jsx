@@ -25,6 +25,7 @@ const Principal=()=>{
         }
         const filteredProducts = productosTienda.filter(product=>product.category==categoriaActual);
         const storeList= filteredProducts.map((product,i)=><Articulo key={i} agregar={agregar} img={product.images[0]} nombre={product.title} precio={product.price}/>)
+        console.log("productos",productosCarrito)
         const productList= productosCarrito.map((product,i)=><Producto key={i} nombre={product.title} precio={product.price}/>)
         return(
             <div className="contenedor">

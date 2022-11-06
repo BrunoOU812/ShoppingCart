@@ -1,6 +1,8 @@
 import React from "react";
 
 const Producto=(props)=>{
+    console.log("pero por el producto",props)
+
     return(
         <div className="producto">
             <img src={props.img} alt="" className="producto__img" />

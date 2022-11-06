@@ -1,5 +1,6 @@
 import './styles.css';
 import Principal from "./components/Principal";
+import Form from "./components/Form";
 import {
   BrowserRouter as Router,
   Routes as Switch,
@@ -18,7 +19,7 @@ function App() {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <Link to="/add">Add</Link>
           </li>
           <li>
             <Link to="/dashboard">Dashboard</Link>
@@ -36,7 +37,7 @@ function App() {
         */}
         <Switch>
           <Route  exact path="/" element={<Principal/>}/>
-          <Route path="/about" element={<About/> }/>
+          <Route path="/add" element={<Form/> }/>
           <Route path="/dashboard" element={<Dashboard/>}/>
         </Switch>
       </div>
