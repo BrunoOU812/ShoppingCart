@@ -153,6 +153,21 @@ body {
   height: 100%;
   border-top: 1px solid #ddd;
 }
+.carrito__vacio {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  height: 100%;
+  text-transform: uppercase;
+  color: #ccc;
+}
 
 .tienda {
   -ms-grid-row: 2;
@@ -187,6 +202,21 @@ body {
   overflow-y: scroll;
   height: 85%;
   border-top: 1px solid #ddd;
+}
+.tienda__vacio {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  height: 100%;
+  text-transform: uppercase;
+  color: #ccc;
 }
 
 .subtotal {
@@ -282,9 +312,6 @@ body {
 .producto > *:nth-child(6) {
   -ms-grid-row: 2;
   -ms-grid-column: 3;
-}
-.producto:hover {
-  color: teal;
 }
 .producto__img {
   -o-object-fit: cover;
@@ -413,11 +440,13 @@ body {
   -ms-grid-row: 5;
   -ms-grid-column: 4;
 }
-.articulo:hover {
-  color: teal;
-}
 .articulo__img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: 0 0;
+     object-position: 0 0;
   width: 100%;
+  height: 15vh;
   -ms-grid-row: 1;
   -ms-grid-row-span: 1;
   grid-row: 1/2;
@@ -446,7 +475,7 @@ body {
   justify-self: flex-end;
   -ms-grid-row-align: center;
       align-self: center;
-  font-size: 2vh;
+  font-size: 1.5vh;
 }
 .articulo__agregar {
   display: -webkit-box;
@@ -478,11 +507,45 @@ body {
 }
 .articulo__agregar:hover {
   color: white;
-  background-color: #999;
-  border: 1px solid #999;
+  background-color: #ccc;
+  border: 1px solid #ccc;
 }
 .articulo__agregar:active {
   color: white;
   background-color: teal;
+  border: 1px solid teal;
+}
+
+.categoria {
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  grid-row: 3/4;
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 1;
+  grid-column: 3/4;
+}
+.categoria__cambiar {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+  background: transparent;
+  border: 1px solid white;
+  font-size: 2vh;
+  padding: 1vh;
+  border-radius: 5px;
+}
+.categoria__cambiar:hover {
+  color: teal;
+  background: white;
+  border: 1px solid white;
+}
+.categoria__cambiar:active {
+  color: white;
+  background: teal;
   border: 1px solid teal;
 }

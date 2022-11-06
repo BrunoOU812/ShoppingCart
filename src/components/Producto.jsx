@@ -1,24 +1,19 @@
 import React from "react";
 
-class Producto extends React.Component{
-    constructor(props){
-        super(props)
-    }
-    render(){
-        return(
-            <div className="producto">
-                <img src="https://via.placeholder.com/150/ccc/fff/" alt="" className="producto__img" />
-                <div className="producto__nombre">{this.props.nombre}</div>
-                <div className="producto__precio">${this.props.precio}</div>
-                <button className="producto__borrar"><span class="material-symbols-outlined">
-delete
-</span></button>
-                {/* <span class="material-symbols-outlined">
-shopping_cart
-</span> */}
-            </div>
-        )
-    }
+const Producto=(props)=>{
+    return(
+        <div className="producto">
+            <img src={props.img} alt="" className="producto__img" />
+            <div className="producto__nombre">{props.nombre}</div>
+            <div className="producto__precio">${props.precio}</div>
+            <button className="producto__borrar">
+                <span className="material-symbols-outlined">
+                    delete
+                </span>
+            </button>
+        </div>
+    )
+    
 }
 
 export default Producto
