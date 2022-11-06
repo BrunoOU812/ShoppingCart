@@ -1,8 +1,39 @@
 import React from "react";
+import Producto from "./Producto";
 // action="http://localhost:4000/productos" method="GET" 
 const Form = ()=>{
-    const send=()=>{
-        console.log("enviando")
+    const [product,editProduct]= React.useState( {
+        id:0,
+        title:"",
+        description:"",
+        price:0,
+        discountPercentage:0,
+        rating:0,
+        stock:1,
+        brand:"",
+        category:"",
+        thumbnail:"",
+        images:[]
+    })
+    const send=(e)=>{
+        e.preventDefault();
+        console.log(product)
+    }
+    const handleTitleChange=(e)=>{
+        console.log(e.target.value);
+        editProduct({...product,title:e.target.value});
+    }
+    const handlePriceChange=(e)=>{
+        console.log(e.target.value);
+        editProduct({...product,price:e.target.value});
+    }
+    const handleImgChange=(e)=>{
+        console.log(e.target.value);
+        editProduct({...product,images:e.target.value});
+    }
+    const handleCatChange=(e)=>{
+        console.log(e.target.value);
+        editProduct({...product,category:e.target.value});
     }
     return ( 
     <div className="form">
@@ -17,22 +48,22 @@ package
         <form className="form__lista" onSubmit={send}>
 <div className="form__block">
     <label htmlFor="precio" className="form__label" >Name:</label>
-    <input type="text" className="form__input" />
+    <input type="text" onChange={handleTitleChange} value={product.title} className="form__input" />
     <span className="form__icon material-symbols-outlined">title</span>
 </div>
 <div className="form__block">
     <label htmlFor="precio" className="form__label" >Price:</label>
-    <input type="text" className="form__input" />
+    <input type="number" onChange={handlePriceChange} className="form__input" />
     <span className="form__icon material-symbols-outlined">attach_money</span>
 </div>
 <div className="form__block">
     <label htmlFor="precio" className="form__label" >Image(url):</label>
-    <input type="text" className="form__input" />
+    <input type="text" onChange={handleImgChange} className="form__input" />
     <span className="form__icon material-symbols-outlined">image</span>
 </div>
 <div className="form__block">
     <label htmlFor="precio" className="form__label" >Category:</label>
-    <input type="text" className="form__input" />
+    <input type="text" onChange={handleCatChange} className="form__input" />
     <span className="form__icon material-symbols-outlined">category</span>
 </div>
 <button type="submit"  className="form__button">
