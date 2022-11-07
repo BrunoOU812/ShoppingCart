@@ -1,6 +1,7 @@
 import React from "react";
 import Articulo from "./Articulo";
 import Producto from "./Producto";
+import Option from "./Option";
 
 const Principal=()=>{
         React.useEffect(()=>{
@@ -20,11 +21,19 @@ const Principal=()=>{
             return categoriaActual=="laptops"?cambiarCategoria("smartphones"):cambiarCategoria("laptops");
         }
         const filteredProducts = productosTienda.filter(product=>product.category==categoriaActual);
-        const storeList= filteredProducts.map((product,i)=><Articulo key={i} prodCart={productosCarrito} agregar={cambiarProductosCarrito} img={product.images[0]} nombre={product.title} precio={product.price}/>)
-        const productList= productosCarrito.map((product,i)=><Producto key={i} nombre={product.title} precio={product.price} images={product.images}/>)
-        // const total=productosCarrito.reduce((a,b)=>a+=b);
-        // console.log("productos",)
-        const total=(productosCarrito.length==0?0:productosCarrito.map(item=>item.price).reduce((a,b)=>a+=b));
+        const storeList= filteredProducts.map((product,i)=><Articulo key={i} prodCart={productosCarrito} add={cambiarProductosCarrito} img={product.images[0]} nombre={product.title} precio={product.price}/>)
+        const productList= productosCarrito.map((product,i)=><Producto key={i} prodCart={productosCarrito} remove={cambiarProductosCarrito}  nombre={product.title} precio={product.price} images={product.images}/>)
+        const total=(productosCarrito.length==0?0:productosCarrito.map(item=>parseInt(item.price)).reduce((a,b)=>a+=b));
+        const options=productosTienda
+            .map(product=>product.category)
+            .concat("all")
+            .filter((item,i,arr)=>(i-1)<0?item:item==arr[i-1]?0:item)
+            .map((product,i)=><Option key={i} change={cambiarCategoria} option={product}/>)
+            .reverse();
+        const selectOpt=()=>{
+            
+        }
+        
         return(
             <div className="contenedor">
                 <h2 className="contenedor__h2">AMAZONE!</h2>
@@ -51,10 +60,16 @@ payments
                     <div className="subtotal__monto">${total}</div>
                 </div>
                 <div className="categoria">
-                    <button onClick={cambiador} className="categoria__cambiar"><span className="material-symbols-outlined categoria__icon">
-cached
+                    {/* <label >
+                        <select onChange={selectOpt} className="tienda__select" >
+                            {options}
+                        </select>
+                    </label> */}
+                <button onClick={cambiador} className="categoria__cambiar"><span className="material-symbols-outlined categoria__icon">
+filter_alt
 </span>&nbsp;Change {categoriaActual}</button>
-                    </div>
+                </div>
+                
             </div>
         )
 }
