@@ -37,6 +37,7 @@ body{
         font-style: italic;
         font-weight: 900;
         font-size: 3VW;
+        font-size: 6Vh;
         padding-left: .5VW;
     }
 }
@@ -93,7 +94,8 @@ body{
         color: teal;
     }
     &__lista{
-        overflow-y: scroll;
+    box-sizing: border-box;
+    overflow-y: scroll;
         height: 85%;
         border-top: 1px solid #ddd;
     }
@@ -145,9 +147,9 @@ body{
 .producto{
     box-sizing: border-box;
     display: grid;
-    grid-template-columns: 15% 45% 30%;
+    grid-template-columns: 25% 50% 15%;
     grid-template-rows: 50% 50%;
-    border-top: 1px solid #ddd;
+    // border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
     width: 100%;
     height: 10vh;
@@ -166,14 +168,14 @@ body{
     &__nombre{
         grid-column: 2/3;
         align-self: flex-start;
-        font-size: 2vh;
+        font-size: 1.5vh;
         grid-row: 1/2;
         // background-color: red;
     }
     &__precio{
         grid-column: 2/3;
         align-self: flex-end;
-        font-size: 1vw;
+        font-size: 1.5vh;
         grid-row: 2/3;
         // background-color: red;
     }

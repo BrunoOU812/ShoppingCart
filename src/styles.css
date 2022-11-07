@@ -111,6 +111,7 @@ body {
   font-style: italic;
   font-weight: 900;
   font-size: 3VW;
+  font-size: 6Vh;
   padding-left: 0.5VW;
 }
 
@@ -199,6 +200,8 @@ body {
   color: teal;
 }
 .tienda__lista {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   overflow-y: scroll;
   height: 85%;
   border-top: 1px solid #ddd;
@@ -272,11 +275,10 @@ body {
           box-sizing: border-box;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 15% 45% 30%;
-  grid-template-columns: 15% 45% 30%;
+  -ms-grid-columns: 25% 50% 15%;
+  grid-template-columns: 25% 50% 15%;
   -ms-grid-rows: 50% 50%;
   grid-template-rows: 50% 50%;
-  border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
   width: 100%;
   height: 10vh;
@@ -328,7 +330,7 @@ body {
   -ms-grid-column-span: 1;
   grid-column: 2/3;
   align-self: flex-start;
-  font-size: 2vh;
+  font-size: 1.5vh;
   -ms-grid-row: 1;
   -ms-grid-row-span: 1;
   grid-row: 1/2;
@@ -338,7 +340,7 @@ body {
   -ms-grid-column-span: 1;
   grid-column: 2/3;
   align-self: flex-end;
-  font-size: 1vw;
+  font-size: 1.5vh;
   -ms-grid-row: 2;
   -ms-grid-row-span: 1;
   grid-row: 2/3;

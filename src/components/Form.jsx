@@ -17,22 +17,24 @@ const Form = ()=>{
     })
     const send=(e)=>{
         e.preventDefault();
-        console.log(product)
+        fetch("http://localhost:4000/productos",{
+            headers: {
+                "Content-Type":"application/json"
+            },
+            method:"POST",
+            body: JSON.stringify(product)
+        });
     }
     const handleTitleChange=(e)=>{
-        console.log(e.target.value);
         editProduct({...product,title:e.target.value});
     }
     const handlePriceChange=(e)=>{
-        console.log(e.target.value);
         editProduct({...product,price:e.target.value});
     }
     const handleImgChange=(e)=>{
-        console.log(e.target.value);
         editProduct({...product,images:e.target.value});
     }
     const handleCatChange=(e)=>{
-        console.log(e.target.value);
         editProduct({...product,category:e.target.value});
     }
     return ( 

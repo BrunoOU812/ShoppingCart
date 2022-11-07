@@ -5,7 +5,7 @@ const Producto=(props)=>{
 
     return(
         <div className="producto">
-            <img src={props.img} alt="" className="producto__img" />
+            <img src={props.images} alt="" className="producto__img" />
             <div className="producto__nombre">{props.nombre}</div>
             <div className="producto__precio">${props.precio}</div>
             <button className="producto__borrar">
