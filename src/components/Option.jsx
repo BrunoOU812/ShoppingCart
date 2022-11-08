@@ -6,7 +6,7 @@ const Option = (props)=>{
         props.change(props.option);
     }
     return (
-            <option onClick={changeCategory}>{props.option}</option>
+            <option value={props.option} onClick={changeCategory}>{props.option}</option>
     )
 }
 

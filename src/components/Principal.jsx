@@ -14,7 +14,7 @@ const Principal=()=>{
             });            
         },[]);
 
-        const [categoriaActual, cambiarCategoria]= React.useState("laptops");
+        const [categoriaActual, cambiarCategoria]= React.useState("home-decoration");
         const [productosTienda, cambiarProductosTienda]= React.useState([]);
         const [productosCarrito, cambiarProductosCarrito]= React.useState([]);
         const cambiador=()=>{
@@ -26,12 +26,12 @@ const Principal=()=>{
         const total=(productosCarrito.length==0?0:productosCarrito.map(item=>parseInt(item.price)).reduce((a,b)=>a+=b));
         const options=productosTienda
             .map(product=>product.category)
-            .concat("all")
+            // .concat("all")
             .filter((item,i,arr)=>(i-1)<0?item:item==arr[i-1]?0:item)
             .map((product,i)=><Option key={i} change={cambiarCategoria} option={product}/>)
             .reverse();
-        const selectOpt=()=>{
-            
+        const selectOpt=(e)=>{
+            cambiarCategoria(e.target.value)
         }
         
         return(
@@ -60,14 +60,14 @@ payments
                     <div className="subtotal__monto">${total}</div>
                 </div>
                 <div className="categoria">
-                    {/* <label >
+                    <label >
                         <select onChange={selectOpt} className="tienda__select" >
                             {options}
                         </select>
-                    </label> */}
-                <button onClick={cambiador} className="categoria__cambiar"><span className="material-symbols-outlined categoria__icon">
+                    </label>
+                {/* <button onClick={cambiador} className="categoria__cambiar"><span className="material-symbols-outlined categoria__icon">
 filter_alt
-</span>&nbsp;Change {categoriaActual}</button>
+</span>&nbsp;Change {categoriaActual}</button> */}
                 </div>
                 
             </div>
