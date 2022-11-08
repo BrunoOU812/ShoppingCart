@@ -1,13 +1,45 @@
 * {
   font-family: "montserrat";
+  margin: 0;
+  box-sizing: border-box;
+  border: none;
 }
+$top: 7vh;
+
 body {
   background-color: teal;
+}
+
+.footer {
+  display: flex;
+  flex-direction: row-reverse;
+  height: 20vh;
+  background-color: #556;
+  padding: 1.5vw;
+  &__a {
+    opacity: 0.5;
+    &:hover {
+      opacity: 1;
+    }
+  }
+  &__img {
+    width: 15vh;
+  }
+}
+.page {
+  margin-top: $top;
+  height: 73vh;
 }
 
 .material-symbols-outlined {
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
 }
+
+.App {
+  // height: 100vh;
+  // background-color: blue;
+}
+
 .logo {
   color: white;
   background-color: red;
@@ -18,21 +50,21 @@ body {
 .contenedor {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr 1fr;
-  grid-template-rows: 20% 60% 20%;
+  grid-template-rows: 20% 40vh;
   column-gap: 20px;
   row-gap: 20px;
   flex-direction: column;
   color: white;
-  height: 60vh;
   padding: 1vw;
   &__h2 {
+    align-self: flex-end;
     grid-row: 1/2;
     grid-column: 2/3;
     font-style: italic;
     font-weight: 900;
-    font-size: 3vw;
     font-size: 6vh;
     padding-left: 0.5vw;
+    height: $top;
   }
 }
 
@@ -53,6 +85,7 @@ body {
     padding-left: 1vw;
     padding-right: 2.5vw;
     color: teal;
+    height: 5vh;
   }
   &__lista {
     overflow-y: scroll;
@@ -69,27 +102,69 @@ body {
     color: #ccc;
   }
 }
+
+.header {
+  top: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  background-color: teal;
+  border-bottom: 1px solid #ccc;
+  position: fixed;
+  height: $top;
+  width: 100vw;
+  padding: 0 2vw;
+  &__logo {
+    grid-column: 1/2;
+    font-size: 6vh;
+    font-style: italic;
+    font-weight: 900;
+    color: white;
+    &:hover {
+      cursor: default;
+    }
+  }
+  &__nav {
+    grid-column: 2/3;
+  }
+  &__ul {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  &__li {
+    list-style: none;
+  }
+  &__li a {
+    text-decoration: none;
+    color: #ccc;
+    &:hover {
+      color: white;
+    }
+  }
+}
+
 .tienda {
   grid-row: 2/3;
   grid-column: 3/4;
+  display: flex;
+  flex-direction: column;
   background-color: white;
+  padding-top: 1vw;
+  flex-grow: 1;
   color: black;
   &__info {
-    box-sizing: border-box;
-    height: 15%;
     display: flex;
-    align-items: flex-end;
     justify-content: space-between;
     font-size: 1.2vw;
     padding-bottom: 1vh;
     padding-left: 1vw;
-    padding-right: 1vw;
+    padding-right: 2.5vw;
     color: teal;
+    height: 5vh;
   }
   &__lista {
-    box-sizing: border-box;
     overflow-y: scroll;
-    height: 85%;
+    height: 100%;
     border-top: 1px solid #ddd;
   }
   &__vacio {
@@ -203,10 +278,10 @@ body {
 .articulo {
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
-  padding: 3vh 0;
-  height: 100%;
+  padding: 30px 0;
+  height: 300px;
   display: grid;
-  grid-template-rows: 2fr 2vh 1fr;
+  grid-template-rows: 2fr 1fr 1fr;
   grid-template-columns: 1fr 3fr 1fr 1fr;
   color: #aaa;
   row-gap: 10px;
@@ -305,11 +380,13 @@ body {
   height: 60vh;
   padding: 1vw;
   &__h2 {
+    display: flex;
+    flex-direction: column-reverse;
     grid-row: 1/2;
     grid-column: 2/3;
     font-style: italic;
     font-weight: 900;
-    font-size: 3vw;
+    font-size: 6vh;
     padding-left: 0.5vw;
   }
 

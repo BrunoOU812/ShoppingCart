@@ -13,60 +13,30 @@ function App() {
     
     <div className="App">
       <Router>
-      <div>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/add">Add</Link>
-          </li>
-          <li>
-            <Link to="/dashboard">Dashboard</Link>
-          </li>
-        </ul>
+        <div className="header">
+          <span className='header__logo'>A!</span>
+          <nav className='header__nav'>
+            <ul className='header__ul'>
+              <li className='header__li'>
+                <Link activeClassName="header__a" to="/">Home</Link>
+              </li>
+              <li className='header__li'>
+                <Link activeClassName="header__a" to="/add">Add</Link>
+              </li>
+            </ul>
+          </nav>
+        </div>
 
-        <hr />
-
-        {/*
-          A <Switch> looks through all its children <Route>
-          elements and renders the first one whose path
-          matches the current URL. Use a <Switch> any time
-          you have multiple routes, but you want only one
-          of them to render at a time
-        */}
+        <div className='page'>
         <Switch>
           <Route  exact path="/" element={<Principal/>}/>
           <Route path="/add" element={<Form/> }/>
-          <Route path="/dashboard" element={<Dashboard/>}/>
         </Switch>
       </div>
-          {/* <Principal/> */}
     </Router>
-    </div>
-  );
-}
-
-function Home() {
-  return (
-    <div className='container'>
-      <h2>Home</h2>
-    </div>
-  );
-}
-
-function About() {
-  return (
-    <div className='container'>
-      <h2>About</h2>
-    </div>
-  );
-}
-
-function Dashboard() {
-  return (
-    <div className='container'>
-      <h2>Dashboard</h2>
+    <footer className='footer'>
+      <a className='footer__a' target="blank" href="https://brunoou812.github.io/"><img className='footer__img' src="https://brunoou812.github.io/BMWD-logo-01.svg" alt="" /></a>
+    </footer>
     </div>
   );
 }

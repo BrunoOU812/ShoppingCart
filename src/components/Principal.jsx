@@ -17,9 +17,6 @@ const Principal=()=>{
         const [categoriaActual, cambiarCategoria]= React.useState("home-decoration");
         const [productosTienda, cambiarProductosTienda]= React.useState([]);
         const [productosCarrito, cambiarProductosCarrito]= React.useState([]);
-        const cambiador=()=>{
-            return categoriaActual=="laptops"?cambiarCategoria("smartphones"):cambiarCategoria("laptops");
-        }
         const filteredProducts = productosTienda.filter(product=>product.category==categoriaActual);
         const storeList= filteredProducts.map((product,i)=><Articulo key={i} prodCart={productosCarrito} add={cambiarProductosCarrito} img={product.images[0]} nombre={product.title} precio={product.price}/>)
         const productList= productosCarrito.map((product,i)=><Producto key={i} prodCart={productosCarrito} remove={cambiarProductosCarrito}  nombre={product.title} precio={product.price} images={product.images}/>)
@@ -32,6 +29,10 @@ const Principal=()=>{
             .reverse();
         const selectOpt=(e)=>{
             cambiarCategoria(e.target.value)
+        }
+        
+        const purchase=()=>{
+            cambiarProductosCarrito([])
         }
         
         return(
@@ -54,7 +55,7 @@ storefront
                     </div>
                 </div>
                 <div className="subtotal">
-                    <button className="subtotal__boton"><span className="material-symbols-outlined">
+                    <button onClick={purchase} className="subtotal__boton"><span className="material-symbols-outlined">
 payments
 </span>Purchase</button>
                     <div className="subtotal__monto">${total}</div>
@@ -65,9 +66,6 @@ payments
                             {options}
                         </select>
                     </label>
-                {/* <button onClick={cambiador} className="categoria__cambiar"><span className="material-symbols-outlined categoria__icon">
-filter_alt
-</span>&nbsp;Change {categoriaActual}</button> */}
                 </div>
                 
             </div>
