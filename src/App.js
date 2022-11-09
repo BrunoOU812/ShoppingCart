@@ -18,10 +18,10 @@ function App() {
           <nav className='header__nav'>
             <ul className='header__ul'>
               <li className='header__li'>
-                <Link activeClassName="header__a" to="/">Home</Link>
+                <Link to="/">Home</Link>
               </li>
               <li className='header__li'>
-                <Link activeClassName="header__a" to="/add">Add</Link>
+                <Link to="/add">Add</Link>
               </li>
             </ul>
           </nav>

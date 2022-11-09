@@ -1,3 +1,18 @@
+$xxl: 1600px;
+$extra: 1200px;
+$large: 960px;
+$medium: 760px;
+$small: 480px;
+$tiny: 320px;
+
+$infoSize: 2.5vh;
+
+@mixin responsive($size) {
+  @media screen and (max-width: $size) {
+    @content;
+  }
+}
+
 * {
   font-family: "montserrat";
   margin: 0;
@@ -8,6 +23,17 @@ $top: 7vh;
 
 body {
   background-color: teal;
+  // @include responsive($xxl) {
+  //   background-color: green;
+  // }
+
+  // @include responsive($large) {
+  //   background-color: red;
+  // }
+
+  // @include responsive($medium) {
+  //   // background-color: blue;
+  // }
 }
 
 .footer {
@@ -28,7 +54,10 @@ body {
 }
 .page {
   margin-top: $top;
-  height: 73vh;
+  // height: 73vh;
+  @include responsive($medium) {
+    display: flex;
+  }
 }
 
 .material-symbols-outlined {
@@ -42,7 +71,6 @@ body {
 
 .logo {
   color: white;
-  background-color: red;
   width: 5vw;
   grid-row: 3/4;
   grid-column: 3/4;
@@ -56,6 +84,17 @@ body {
   flex-direction: column;
   color: white;
   padding: 1vw;
+  width: 100vw;
+  height: 73vh;
+  @include responsive($xxl) {
+    grid-template-columns: 0.1fr 2fr 1fr 0.1fr;
+  }
+
+  @include responsive($medium) {
+    height: 120vh;
+    grid-template-columns: 0.1fr 1fr 0.1fr;
+    grid-template-rows: 10% 40vh 5vh 40vh 10vh;
+  }
   &__h2 {
     align-self: flex-end;
     grid-row: 1/2;
@@ -77,10 +116,14 @@ body {
   padding-top: 1vw;
   flex-grow: 1;
   color: black;
+  @include responsive($medium) {
+    grid-row: 4/5;
+    grid-column: 2/3;
+  }
   &__info {
     display: flex;
     justify-content: space-between;
-    font-size: 1.2vw;
+    font-size: $infoSize;
     padding-bottom: 1vh;
     padding-left: 1vw;
     padding-right: 2.5vw;
@@ -100,6 +143,56 @@ body {
     height: 100%;
     text-transform: uppercase;
     color: #ccc;
+  }
+}
+
+.tienda {
+  grid-row: 2/3;
+  grid-column: 3/4;
+  @include responsive($medium) {
+    grid-row: 2/3;
+    grid-column: 2/3;
+  }
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding-top: 1vw;
+  flex-grow: 1;
+  color: black;
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    font-size: $infoSize;
+    padding-bottom: 1vh;
+    padding-left: 1vw;
+    padding-right: 2.5vw;
+    color: teal;
+    height: 5vh;
+  }
+  &__lista {
+    overflow-y: scroll;
+    height: 100%;
+    border-top: 1px solid #ddd;
+  }
+  &__vacio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    text-transform: uppercase;
+    color: #ccc;
+  }
+  &__select {
+    display: flex;
+    align-items: center;
+    color: white;
+    background: teal;
+    border: 1px solid white;
+    font-size: 2vh;
+    padding: 1vh;
+    border-radius: 5px;
+    width: 100%;
   }
 }
 
@@ -143,51 +236,6 @@ body {
   }
 }
 
-.tienda {
-  grid-row: 2/3;
-  grid-column: 3/4;
-  display: flex;
-  flex-direction: column;
-  background-color: white;
-  padding-top: 1vw;
-  flex-grow: 1;
-  color: black;
-  &__info {
-    display: flex;
-    justify-content: space-between;
-    font-size: 1.2vw;
-    padding-bottom: 1vh;
-    padding-left: 1vw;
-    padding-right: 2.5vw;
-    color: teal;
-    height: 5vh;
-  }
-  &__lista {
-    overflow-y: scroll;
-    height: 100%;
-    border-top: 1px solid #ddd;
-  }
-  &__vacio {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    text-transform: uppercase;
-    color: #ccc;
-  }
-  &__select {
-    display: flex;
-    align-items: center;
-    color: white;
-    background: teal;
-    border: 1px solid white;
-    font-size: 2vh;
-    padding: 1vh;
-    border-radius: 5px;
-    width: 100%;
-  }
-}
 .subtotal {
   grid-row: 3/4;
   grid-column: 2/3;
@@ -197,6 +245,10 @@ body {
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  @include responsive($medium) {
+    grid-row: 5/6;
+    grid-column: 2/3;
+  }
   &__monto {
     font-size: 3vh;
   }
@@ -344,6 +396,10 @@ body {
 .categoria {
   grid-row: 3/4;
   grid-column: 3/4;
+  @include responsive($medium) {
+    grid-row: 3/4;
+    grid-column: 2/3;
+  }
   &__cambiar {
     width: 100%;
     display: flex;
@@ -378,7 +434,12 @@ body {
   flex-direction: column;
   color: white;
   height: 60vh;
+  width: 100vw;
   padding: 1vw;
+  height: 73vh;
+  @include responsive($medium) {
+    grid-template-columns: 0.1fr 1fr 0.1fr;
+  }
   &__h2 {
     display: flex;
     flex-direction: column-reverse;
@@ -402,7 +463,7 @@ body {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    font-size: 1.2vw;
+    font-size: $infoSize;
     padding-bottom: 1vh;
     padding-left: 1vw;
     padding-right: 1vw;
