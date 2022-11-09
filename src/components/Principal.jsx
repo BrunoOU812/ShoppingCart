@@ -3,7 +3,7 @@ import Articulo from "./Articulo";
 import Producto from "./Producto";
 import Option from "./Option";
 
-const Principal=()=>{
+const Principal=(props)=>{
         React.useEffect(()=>{
             fetch("http://localhost:4000/productos")
             .then((respuesta)=>{
@@ -15,18 +15,29 @@ const Principal=()=>{
         },[]);
 
         const [categoriaActual, cambiarCategoria]= React.useState("home-decoration");
+
         const [productosTienda, cambiarProductosTienda]= React.useState([]);
-        const [productosCarrito, cambiarProductosCarrito]= React.useState([]);
+
+        // const [productosCarrito, cambiarProductosCarrito]= React.useState([]);
+
+        const productosCarrito=props.productosCarrito;
+        const cambiarProductosCarrito=props.cambiarProductosCarrito;
+
         const filteredProducts = productosTienda.filter(product=>product.category==categoriaActual);
+
         const storeList= filteredProducts.map((product,i)=><Articulo key={i} prodCart={productosCarrito} add={cambiarProductosCarrito} img={product.images[0]} nombre={product.title} precio={product.price}/>)
+
         const productList= productosCarrito.map((product,i)=><Producto key={i} prodCart={productosCarrito} remove={cambiarProductosCarrito}  nombre={product.title} precio={product.price} images={product.images}/>)
+
         const total=(productosCarrito.length==0?0:productosCarrito.map(item=>parseInt(item.price)).reduce((a,b)=>a+=b));
+
         const options=productosTienda
             .map(product=>product.category)
             // .concat("all")
             .filter((item,i,arr)=>(i-1)<0?item:item==arr[i-1]?0:item)
             .map((product,i)=><Option key={i} change={cambiarCategoria} option={product}/>)
             .reverse();
+            
         const selectOpt=(e)=>{
             cambiarCategoria(e.target.value)
         }

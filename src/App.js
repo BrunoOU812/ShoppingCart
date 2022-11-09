@@ -1,4 +1,5 @@
 import './styles.css';
+import React from "react";
 import Principal from "./components/Principal";
 import Form from "./components/Form";
 import {
@@ -9,6 +10,8 @@ import {
 } from "react-router-dom";
 
 function App() {
+  const [productosCarrito, cambiarProductosCarrito]= React.useState([]);
+  
   return (
     
     <div className="App">
@@ -29,7 +32,7 @@ function App() {
 
         <div className='page'>
         <Switch>
-          <Route  exact path="/" element={<Principal/>}/>
+          <Route  exact path="/" element={<Principal productosCarrito={productosCarrito} cambiarProductosCarrito={cambiarProductosCarrito} />}/>
           <Route path="/add" element={<Form/> }/>
         </Switch>
       </div>
