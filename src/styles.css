@@ -513,7 +513,10 @@ body {
 .producto__img {
   -o-object-fit: cover;
      object-fit: cover;
+  -o-object-position: 0 0;
+     object-position: 0 0;
   height: 8vh;
+  width: 12vw;
   -ms-grid-row-align: center;
       align-self: center;
   -ms-grid-row: 1;

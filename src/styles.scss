@@ -290,7 +290,9 @@ body {
   // background-color: greenyellow;
   &__img {
     object-fit: cover;
+    object-position: 0 0;
     height: 8vh;
+    width: 12vw;
     align-self: center;
     grid-row: 1/3;
   }
