@@ -4,10 +4,10 @@ const Producto=(props)=>{
     const removeProduct=()=>{
         props.remove([...props.prodCart.filter(prod=>prod.title!=props.nombre)])
     }
-
+    console.log("imagen producto",props.img)
     return(
         <div className="producto">
-            <img src={props.images} alt="" className="producto__img" />
+            <img src={props.img} alt="" className="producto__img" />
             <div className="producto__nombre">{props.nombre}</div>
             <div className="producto__precio">${props.precio}</div>
             <button onClick={removeProduct} className="producto__borrar">

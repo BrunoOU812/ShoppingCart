@@ -23,9 +23,9 @@ function App() {
               <li className='header__li'>
                 <Link to="/">Home</Link>
               </li>
-              <li className='header__li'>
+              {/* <li className='header__li'>
                 <Link to="/add">Add</Link>
-              </li>
+              </li> */}
             </ul>
           </nav>
         </div>

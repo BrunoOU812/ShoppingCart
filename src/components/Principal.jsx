@@ -4,30 +4,36 @@ import Producto from "./Producto";
 import Option from "./Option";
 
 const Principal=(props)=>{
+        // React.useEffect(()=>{
+        //     fetch("'https://fakestoreapi.com/products")
+        //     .then((respuesta)=>{
+        //     return respuesta.json()
+        //     })
+        //     .then((respuestaJSON)=>{
+        //         cambiarProductosTienda(respuestaJSON);
+        //     });            
+        // },[]);
+
         React.useEffect(()=>{
-            fetch("http://localhost:4000/productos")
-            .then((respuesta)=>{
-            return respuesta.json()
-            })
-            .then((respuestaJSON)=>{
-                cambiarProductosTienda(respuestaJSON);
-            });            
-        },[]);
+            fetch('https://fakestoreapi.com/products')
+             .then(res=>res.json())
+             .then(json=>{
+                 cambiarProductosTienda(json)})          
+         },[]);
 
-        const [categoriaActual, cambiarCategoria]= React.useState("home-decoration");
-
-        const [productosTienda, cambiarProductosTienda]= React.useState([]);
-
+         
+         const [productosTienda, cambiarProductosTienda]= React.useState([]);
+         const [categoriaActual, cambiarCategoria]= React.useState("women's clothing");
+         
         // const [productosCarrito, cambiarProductosCarrito]= React.useState([]);
 
         const productosCarrito=props.productosCarrito;
         const cambiarProductosCarrito=props.cambiarProductosCarrito;
-
         const filteredProducts = productosTienda.filter(product=>product.category==categoriaActual);
 
-        const storeList= filteredProducts.map((product,i)=><Articulo key={i} prodCart={productosCarrito} add={cambiarProductosCarrito} img={product.images[0]} nombre={product.title} precio={product.price}/>)
-
-        const productList= productosCarrito.map((product,i)=><Producto key={i} prodCart={productosCarrito} remove={cambiarProductosCarrito}  nombre={product.title} precio={product.price} images={product.images}/>)
+        const storeList= filteredProducts.map((product,i)=><Articulo key={i} prodCart={productosCarrito} add={cambiarProductosCarrito} img={product.image} nombre={product.title} precio={product.price}/>)
+         console.log("productos carrito",productosCarrito)
+        const productList= productosCarrito.map((product,i)=><Producto key={i} prodCart={productosCarrito} remove={cambiarProductosCarrito}  nombre={product.title} precio={product.price} img={product.images}/>)
 
         const total=(productosCarrito.length==0?0:productosCarrito.map(item=>parseInt(item.price)).reduce((a,b)=>a+=b));
 
